@@ -8,6 +8,7 @@ class HeapSort extends AbstractSort {
     void sort(int[] arr) {
         // Java program for implementation of Heap Sort
         //taken from geeksforgeeks.org/java-program-for-heap-sort/
+		startSort();
 		int n = arr.length;
 
 		// Build heap (rearrange array)
@@ -24,6 +25,7 @@ class HeapSort extends AbstractSort {
 			// call max heapify on the reduced heap
 			heapify(arr, i, 0);
 		}
+		endSort();
 	}
 
 	// To heapify a subtree rooted with node i which is
@@ -51,6 +53,7 @@ class HeapSort extends AbstractSort {
 			// Recursively heapify the affected sub-tree
 			heapify(arr, n, largest);
 		}
+		
         incrementCount();
 	}
 
