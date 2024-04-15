@@ -1,13 +1,15 @@
-
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
+/**UMGC CMSC 451
+ * Description: Heapsort vs Bubblesort Benchmarking- Creates 12 different random datasets and runs benchmark tests for two sorting algorithms, heap and bubble sort. Each algorithm is averaged over 40 runs and the data is output to a .txt file. 
+ * @author Ty Marino
+ * Date: August 13th, 2024
+ * Java 11
+ */
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BenchmarkSorts {
@@ -15,9 +17,9 @@ public class BenchmarkSorts {
     public static void main(String[] args) throws Exception {
         Scanner scanner;
         File selection = null;
-        int[] targetArray;
         long time = 0;
         int counter = 0;
+        int[] targetArray;
         ArrayList<int[]> datasets;
 
         datasets =initializeDataSets();
@@ -32,8 +34,9 @@ public class BenchmarkSorts {
         
         for(int i = 0; i < datasets.size(); i++){
             appendData(bubbleFile, System.lineSeparator()+ Integer.toString(datasets.get(i).length)+ " ");
-            targetArray = datasets.get(i);
+            
             for(int j = 0; j<40; j++){
+                targetArray = Arrays.copyOf(datasets.get(i), datasets.get(i).length);
                 bubble.sort(targetArray);
 
                 //throws error if array is unsorted
@@ -41,7 +44,7 @@ public class BenchmarkSorts {
                     throw new UnsortedArrayException("Array did not properly sorted", new RuntimeException());
                 }
                 System.out.printf("Operations: %d Time Taken %d ns", bubble.getCount(), bubble.getTime());
-                appendData(bubbleFile, "(" + Integer.toString(bubble.getCount())+ ","+Long.toString(bubble.getTime())+")");
+                appendData(bubbleFile, "(" + Integer.toString(bubble.getCount())+ ","+Long.toString(bubble.getTime())+") ");
             }
         }
         
@@ -49,10 +52,9 @@ public class BenchmarkSorts {
         System.out.println("HEAP SORT BENCHMARK");
         File heapFile = createDataFile("heapSortBenchmark");
         for(int i = 0; i < datasets.size(); i++){
-            appendData(heapFile, System.lineSeparator()+ Integer.toString(datasets.get(i).length)+ " ");
-            targetArray = datasets.get(i);
-            
+            appendData(heapFile, System.lineSeparator()+ Integer.toString(datasets.get(i).length)+ " ");            
             for(int j = 0; j<40; j++){
+                targetArray = Arrays.copyOf(datasets.get(i), datasets.get(i).length);
                 heap.sort(targetArray);
                 
                 //throws error if array is unsorted
@@ -60,7 +62,7 @@ public class BenchmarkSorts {
                     throw new UnsortedArrayException("Array did not properly sorted", new RuntimeException());
                 }
                 System.out.printf("Operations: %d Time Taken %d ns", heap.getCount(), heap.getTime());
-                appendData(heapFile, "(" + Integer.toString(bubble.getCount())+ ","+Long.toString(bubble.getTime())+")");
+                appendData(heapFile, "(" + Integer.toString(bubble.getCount())+ ","+Long.toString(bubble.getTime())+") ");
             }
         }
 
@@ -84,7 +86,7 @@ public class BenchmarkSorts {
                     data[j] = (int)(Math.random() * 100);
                 }
                 datasets.add(data);
-                dataSize*=10;
+                dataSize+=1000;
             }
             return datasets;
     }
