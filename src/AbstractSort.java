@@ -1,4 +1,7 @@
-
+/**UMGC CMSC 451
+ * Description: Abstract sort class for siomple implementation of benchmarking
+ * Java 11
+ */
  abstract class AbstractSort {
     
     int counter;

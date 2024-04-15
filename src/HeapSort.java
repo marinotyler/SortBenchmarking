@@ -1,3 +1,9 @@
+/**UMGC CMSC 451
+ * Description: Heap sort algorithm implementation. Algorithm is not my own implementation. Taken from geeksforgeeks.org/geeksforgeeks.org/java-program-for-heap-sort/
+ * @author Ty Marino
+ * Date: August 13th, 2024
+ * Java 11
+ */
 class HeapSort extends AbstractSort {
 
     public HeapSort(int counter, long time) {

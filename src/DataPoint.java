@@ -1,4 +1,8 @@
-
+/**UMGC CMSC 451
+ * Description: Creates datapoint type for report parsing
+ * Date: August 13th, 2024
+ * Java 11
+ */
 public class DataPoint {
     public int size; 
     public int count;
