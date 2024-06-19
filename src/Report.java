@@ -38,7 +38,6 @@ public class Report {
 
             //window setup
             ArrayList<double[]> data= processData(dataFile);
-            // TableModel model = new BenchmarkModel(data);
             DefaultTableModel model = new DefaultTableModel(columnNames,0);
             for(double[] run :data){
                 Object[] row = new Object[5];

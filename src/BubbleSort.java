@@ -1,5 +1,5 @@
 /**UMGC CMSC 451
- * Description: Bubble sort algorithm implementation. Algorithm is not my own implementation. Taken from geeksforgeeks.org/java-program-for-bubble-sort/
+ * Description: Bubble sort algorithm implementation. 
  * @author Ty Marino
  * Date: August 13th, 2024
  * Java 11
@@ -15,7 +15,6 @@ public class BubbleSort extends AbstractSort {
     void sort(int[] arr) {
         // Java program for implementation 
         // of Bubble Sort 
-        //taken from geeksforgeeks.org/java-program-for-bubble-sort/
         startSort();
 		int n = arr.length; 
 		for (int i = 0; i < n - 1; i++) 

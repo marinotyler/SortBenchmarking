@@ -1,5 +1,5 @@
 /**UMGC CMSC 451
- * Description: Heap sort algorithm implementation. Algorithm is not my own implementation. Taken from geeksforgeeks.org/geeksforgeeks.org/java-program-for-heap-sort/
+ * Description: Heap sort algorithm implementation. 
  * @author Ty Marino
  * Date: August 13th, 2024
  * Java 11
@@ -13,7 +13,7 @@ class HeapSort extends AbstractSort {
     @Override
     void sort(int[] arr) {
         // Java program for implementation of Heap Sort
-        //taken from geeksforgeeks.org/java-program-for-heap-sort/
+    
 		startSort();
 		int n = arr.length;
 
